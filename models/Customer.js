@@ -4,10 +4,6 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 
 const customerSchema = new  mongoose.Schema(
     {
-        _id:{
-            type:ObjectId,
-            required:true
-        },
         name:{
             type:String,
             required:true

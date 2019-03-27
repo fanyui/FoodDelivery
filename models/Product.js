@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId
 
 const productSchema = new  mongoose.Schema({
-    id:Number,
     name:{
         type:String,
         required:true

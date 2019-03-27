@@ -5,6 +5,13 @@ exports.test = function (req, res) {
     res.send('Greetings from the Test controller!');
 };
 
+exports.all = function (req, res) {
+    Customer.find( {}, function (err, customer) {
+        if (err) 
+            res.status(404, 'No customers found').send(err);
+        res.status(200).send(customer);
+    })
+};
 
 exports.details = function (req, res) {
     Customer.find({}, function (err, customers) {
@@ -31,14 +38,14 @@ exports.create = function (req, res) {
             res.status(201, 'The customer is created').send(err);
         }
         res.status(200).send('Customer Created successfully')
-    })
+    });
 };
 
 exports.details = function (req, res) {
     Customer.findById(req.params.id, function (err, customer) {
         if (err) return next(err);
         res.send(customer);
-    })
+    });
 };
 
 
@@ -61,6 +68,6 @@ exports.delete = function (req, res) {
         }else{
             res.status(200).send('Deleted successfully');
         }
-    })
+    });
 };
 

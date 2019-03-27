@@ -6,7 +6,7 @@ const order_controller = require('../controllers/order.controller');
 
 
 // returns all orders in the platform 
-router.get('/', order_controller.all);
+// router.get('/', order_controller.all);
 
 //  create and order
 router.post('/:cust/create', order_controller.create);
@@ -24,6 +24,12 @@ router.delete('/:id', order_controller.delete);
 	1. Add routes for querrying all orders for a particular date range
 	2. Add routes for querrying all orders for a particular product.
 	3. Add routes for querrying all orders for a particulare customer.
+	order.
+		.find({ customer : customer._id })
+		.exec(function (err, stories) {
+		  if (err) return handleError(err);
+		  // returns all stories that have Bob's id as their author.
+		});
 
 	4. Add routes for querrying top ordered products.
 

@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
-import {customerSchema} from './CustomerModel'
+
 const ObjectId = mongoose.Schema.Types.ObjectId
+var Schema = mongoose.Schema
 
 const orderSchema = new mongoose.Schema({
-    _id:{
-        type:ObjectId,
-        required:true
-    },
-    customer:{
-        type:customerSchema,
-        required:true
+    customer: {
+        type: Schema.Types.ObjectId,
+        ref: 'Customer',
+        required: true
     },
 
     products:[],

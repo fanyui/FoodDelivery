@@ -15,7 +15,7 @@ exports.all = function (req, res) {
 
 exports.create = function (req, res) {
     let product = new Product(
-        {	_id:1,
+        {
             name: req.body.name,
             price: req.body.price,
             type: req.body.type,

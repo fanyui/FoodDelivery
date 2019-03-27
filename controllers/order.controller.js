@@ -20,7 +20,7 @@ exports.create = function (req, res) {
     let order = new Order(
         {
             products: req.body.products,
-            customer: customer,
+            customer: customer._id,
             orderDate: req.body.orderDate
         }
     );
@@ -35,7 +35,10 @@ exports.create = function (req, res) {
 
 exports.details = function (req, res) {
     Order.findById(req.params.id, function (err, order) {
-        if (err) return next(err);
+        if (err) 
+            {
+                res.status(404, 'The order is not found').send(err);
+            }
         res.send(order);
     })
 };
